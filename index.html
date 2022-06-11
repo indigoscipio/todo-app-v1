@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Todo app</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="header__logo">todo</div>
+
+        <div class="header__theme-switcher">
+          <img src="images/icon-moon.svg" alt="" />
+        </div>
+      </header>
+
+      <div class="todo">
+        <div class="todo__input">
+          <input type="text" placeholder="Create a new todo..." />
+        </div>
+        <div class="todo__content">
+          <ul class="todo__list">
+            <li>
+              <label class="label">
+                <input type="checkbox" />
+                <span class="checkbox-custom">
+                  Complete Javascript Course Online</span
+                ></label
+              >
+              <button class="icon-close">
+                <img src="images/icon-cross.svg" alt="" />
+              </button>
+            </li>
+            <li>
+              <label class="label">
+                <input type="checkbox" />
+                <span class="checkbox-custom">
+                  Complete Javascript Course Online</span
+                ></label
+              >
+              <button class="icon-close">
+                <img src="images/icon-cross.svg" alt="" />
+              </button>
+            </li>
+            <li>
+              <label class="label">
+                <input type="checkbox" />
+                <span class="checkbox-custom">
+                  Complete Javascript Course Online</span
+                ></label
+              >
+              <button class="icon-close">
+                <img src="images/icon-cross.svg" alt="" />
+              </button>
+            </li>
+            <li>
+              <label class="label">
+                <input type="checkbox" />
+                <span class="checkbox-custom">
+                  Complete Javascript Course Online</span
+                ></label
+              >
+              <button class="icon-close">
+                <img src="images/icon-cross.svg" alt="" />
+              </button>
+            </li>
+          </ul>
+          <div class="todo__info">
+            <p class="remaining">5 items left</p>
+            <div class="filter">
+              <input type="radio" id="filter-all" name="filter" checked />
+              <label for="filter-all">All</label>
+              <input type="radio" id="filter-active" name="filter" />
+              <label for="filter-active">Active</label>
+              <input type="radio" id="filter-completed" name="filter" />
+              <label for="filter-completed">Completed</label>
+            </div>
+            <button class="clear">Clear Completed</button>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer"><p>Drag and drop to reorder list</p></footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

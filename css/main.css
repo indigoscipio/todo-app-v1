@@ -1,0 +1,210 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box; }
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0; }
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+
+html {
+  font-size: 62.5%; }
+
+html:focus-within {
+  scroll-behavior: smooth; }
+
+body {
+  min-height: 100vh;
+  color: #484b6a;
+  text-rendering: optimizeSpeed;
+  font-size: 1.8rem;
+  font-family: "Josefin Sans", sans-serif;
+  position: relative; }
+  body::before {
+    z-index: -1;
+    content: "";
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 24rem;
+    display: inline-block;
+    background-color: black;
+    background-image: url(../images/bg-mobile-light.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center; }
+    @media screen and (min-width: 48em) {
+      body::before {
+        height: 32rem;
+        background-image: url(../images/bg-desktop-light.jpg); } }
+
+a:not([class]) {
+  text-decoration-skip-ink: auto; }
+
+img,
+picture {
+  max-width: 100%;
+  display: block; }
+
+input,
+button,
+textarea,
+select {
+  font: inherit; }
+
+input[type="text"] {
+  border: 0;
+  border-radius: 0.4rem;
+  padding: 1.6rem;
+  font-size: 1.2rem;
+  width: 100%; }
+  @media screen and (min-width: 48em) {
+    input[type="text"] {
+      font-size: 1.8rem; } }
+
+button {
+  background-color: transparent;
+  border: 0; }
+
+.container {
+  margin: 0 auto;
+  max-width: 64rem;
+  padding-left: 2.4rem;
+  padding-right: 2.4rem; }
+
+.header {
+  padding: 4rem 0;
+  display: flex;
+  color: #fafafa;
+  justify-content: space-between;
+  align-items: center; }
+  .header__logo {
+    font-size: 3.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4rem; }
+    @media screen and (min-width: 48em) {
+      .header__logo {
+        font-size: 4rem;
+        letter-spacing: 0.6rem; } }
+  .header__theme-switcher {
+    cursor: pointer; }
+
+.todo {
+  font-size: 1.2rem; }
+  @media screen and (min-width: 48em) {
+    .todo {
+      font-size: 1.8rem; } }
+  .todo__content {
+    background-color: white;
+    border-radius: 0.4rem;
+    margin-top: 1.6rem;
+    box-shadow: 0 16px 32px rgba(72, 75, 106, 0.3);
+    position: relative; }
+  .todo__list li {
+    padding: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e4e5f1; }
+    .todo__list li label {
+      cursor: pointer;
+      margin-right: auto; }
+      .todo__list li label:hover .checkbox-custom::after {
+        border: 1px solid #484b6a; }
+      .todo__list li label input:checked ~ .checkbox-custom::after {
+        background-image: url(../images/icon-check.svg), linear-gradient(to bottom right, #57ddff, #c058f3);
+        background-position: center;
+        background-repeat: no-repeat;
+        border: 0; }
+      .todo__list li label input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0; }
+      .todo__list li label .checkbox-custom {
+        position: relative;
+        margin-left: 4rem; }
+        .todo__list li label .checkbox-custom:after {
+          content: "";
+          border-radius: 50%;
+          border: 1px solid #d2d3db;
+          width: 24px;
+          height: 24px;
+          top: 50%;
+          transform: translateY(-50%);
+          left: -4rem;
+          position: absolute; }
+    .todo__list li .icon-close {
+      width: 24px;
+      height: 24px;
+      cursor: pointer; }
+  .todo__info {
+    font-size: 1.4rem;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    padding: 1.6rem 0.8rem;
+    align-items: center; }
+  .todo .filter {
+    display: flex;
+    background-color: white;
+    position: absolute;
+    bottom: -6.4rem;
+    width: 100%;
+    border-radius: 0.4rem;
+    padding: 1.6rem;
+    left: 0;
+    box-shadow: 0 16px 32px rgba(72, 75, 106, 0.3);
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold; }
+    @media screen and (min-width: 48em) {
+      .todo .filter {
+        padding: 0;
+        position: relative;
+        bottom: 0;
+        left: 0;
+        box-shadow: none;
+        width: auto;
+        background: none;
+        gap: 2.4rem;
+        display: flex; } }
+    .todo .filter input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0; }
+    .todo .filter input[type="radio"]:checked + label {
+      color: #3a7bfd; }
+    .todo .filter label {
+      color: #9394a5;
+      cursor: pointer; }
+      .todo .filter label:hover {
+        color: #484b6a; }
+
+.footer {
+  font-size: 1.4rem;
+  padding-top: 9.6rem;
+  text-align: center; }
+  @media screen and (min-width: 48em) {
+    .footer {
+      font-size: 1.8rem;
+      padding-top: 4.8rem; } }

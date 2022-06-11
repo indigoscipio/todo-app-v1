@@ -1,0 +1,22 @@
+{
+  "name": "todo-app-v1",
+  "version": "1.0.0",
+  "description": "![Design preview for the Todo app coding challenge](./design/desktop-preview.jpg)",
+  "main": "index.js",
+  "scripts": {
+    "scss": "node-sass -w scss -o css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/indigoscipio/todo-app-v1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/indigoscipio/todo-app-v1/issues"
+  },
+  "homepage": "https://github.com/indigoscipio/todo-app-v1#readme",
+  "dependencies": {
+    "node-sass": "^7.0.1"
+  }
+}
