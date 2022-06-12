@@ -30,14 +30,18 @@
       </header>
 
       <div class="todo">
-        <div class="todo__input">
-          <input type="text" placeholder="Create a new todo..." />
-        </div>
+        <form class="todo__form">
+          <input
+            type="text"
+            id="todo-input"
+            placeholder="Create a new todo..."
+          />
+        </form>
         <div class="todo__content">
           <ul class="todo__list">
-            <li>
+            <!-- <li>
               <label class="label">
-                <input type="checkbox" />
+                <input onclick="event.stopPropagation()" type="checkbox" />
                 <span class="checkbox-custom">
                   Complete Javascript Course Online</span
                 ></label
@@ -45,40 +49,7 @@
               <button class="icon-close">
                 <img src="images/icon-cross.svg" alt="" />
               </button>
-            </li>
-            <li>
-              <label class="label">
-                <input type="checkbox" />
-                <span class="checkbox-custom">
-                  Complete Javascript Course Online</span
-                ></label
-              >
-              <button class="icon-close">
-                <img src="images/icon-cross.svg" alt="" />
-              </button>
-            </li>
-            <li>
-              <label class="label">
-                <input type="checkbox" />
-                <span class="checkbox-custom">
-                  Complete Javascript Course Online</span
-                ></label
-              >
-              <button class="icon-close">
-                <img src="images/icon-cross.svg" alt="" />
-              </button>
-            </li>
-            <li>
-              <label class="label">
-                <input type="checkbox" />
-                <span class="checkbox-custom">
-                  Complete Javascript Course Online</span
-                ></label
-              >
-              <button class="icon-close">
-                <img src="images/icon-cross.svg" alt="" />
-              </button>
-            </li>
+            </li> -->
           </ul>
           <div class="todo__info">
             <p class="remaining">5 items left</p>
