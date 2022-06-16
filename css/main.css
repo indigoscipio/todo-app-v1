@@ -32,6 +32,7 @@ body {
   color: #484b6a;
   text-rendering: optimizeSpeed;
   font-size: 1.8rem;
+  line-height: 1;
   font-family: "Josefin Sans", sans-serif;
   position: relative; }
   body::before {
@@ -104,6 +105,10 @@ button {
         letter-spacing: 0.6rem; } }
   .header__theme-switcher {
     cursor: pointer; }
+    .header__theme-switcher img {
+      transition: all 0.3s ease; }
+      .header__theme-switcher img:hover {
+        transform: scale(1.1); }
 
 .todo {
   font-size: 1.2rem; }
@@ -122,39 +127,43 @@ button {
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #e4e5f1; }
+    .todo__list li .text {
+      position: relative;
+      top: 2px; }
     .todo__list li label {
       cursor: pointer;
-      margin-right: auto; }
-      .todo__list li label:hover .checkbox-custom::after {
-        border: 1px solid #484b6a; }
-      .todo__list li label input:checked ~ .checkbox-custom::after {
-        background-image: url(../images/icon-check.svg), linear-gradient(to bottom right, #57ddff, #c058f3);
-        background-position: center;
-        background-repeat: no-repeat;
-        border: 0; }
-      .todo__list li label input {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-        height: 0;
-        width: 0; }
-      .todo__list li label .checkbox-custom {
-        position: relative;
-        margin-left: 4rem; }
-        .todo__list li label .checkbox-custom:after {
-          content: "";
-          border-radius: 50%;
-          border: 1px solid #d2d3db;
+      align-items: center;
+      display: flex; }
+    .todo__list li label:hover .checkbox:not(:checked) {
+      border: 1px solid #9394a5; }
+    .todo__list li .checkbox {
+      -webkit-appearance: none;
+      border: 1px solid #e4e5f1;
+      width: 18px;
+      margin-right: 12px;
+      height: 18px;
+      border-radius: 50%; }
+      @media screen and (min-width: 48em) {
+        .todo__list li .checkbox {
           width: 24px;
-          height: 24px;
-          top: 50%;
-          transform: translateY(-50%);
-          left: -4rem;
-          position: absolute; }
+          height: 24px; } }
+      .todo__list li .checkbox:checked {
+        background-image: url(../images/icon-check.svg), linear-gradient(to bottom right, #57ddff, #c058f3);
+        background-repeat: no-repeat;
+        background-position: center;
+        border: 0; }
+      .todo__list li .checkbox:checked ~ span {
+        text-decoration: line-through;
+        text-decoration-thickness: 2px;
+        opacity: 0.6; }
     .todo__list li .icon-close {
       width: 24px;
       height: 24px;
       cursor: pointer; }
+      @media screen and (min-width: 48em) {
+        .todo__list li .icon-close {
+          width: 32px;
+          height: 32px; } }
   .todo__info {
     font-size: 1.4rem;
     display: flex;
@@ -202,9 +211,11 @@ button {
 
 .footer {
   font-size: 1.4rem;
-  padding-top: 9.6rem;
-  text-align: center; }
+  text-align: center;
+  position: absolute;
+  bottom: 4.8rem;
+  left: 50%;
+  transform: translateX(-50%); }
   @media screen and (min-width: 48em) {
     .footer {
-      font-size: 1.8rem;
-      padding-top: 4.8rem; } }
+      font-size: 1.8rem; } }

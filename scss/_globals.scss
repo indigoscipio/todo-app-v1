@@ -37,6 +37,7 @@ body {
   color: $c-lt-gray-40;
   text-rendering: optimizeSpeed;
   font-size: 1.8rem;
+  line-height: 1;
   font-family: "Josefin Sans", sans-serif;
   position: relative;
 
@@ -126,6 +127,13 @@ button {
 
   &__theme-switcher {
     cursor: pointer;
+
+    img {
+      transition: all 0.3s ease;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
   }
 }
 
@@ -152,49 +160,45 @@ button {
       justify-content: space-between;
       border-bottom: 1px solid $c-lt-gray-10;
 
+      .text {
+        position: relative;
+        top: 2px;
+      }
+
       label {
         cursor: pointer;
-        margin-right: auto;
+        align-items: center;
+        display: flex;
+      }
 
-        &:hover .checkbox-custom::after {
-          border: 1px solid $c-lt-gray-40;
+      label:hover .checkbox:not(:checked) {
+        border: 1px solid $c-lt-gray-30;
+      }
+
+      .checkbox {
+        -webkit-appearance: none;
+        border: 1px solid $c-lt-gray-10;
+        width: 18px;
+        margin-right: 12px;
+        height: 18px;
+        border-radius: 50%;
+
+        @include md {
+          width: 24px;
+          height: 24px;
         }
 
-        input:checked ~ .checkbox-custom::after {
-          background-image: url(../images/icon-check.svg),
-            linear-gradient(
-              to bottom right,
-              hsl(192, 100%, 67%),
-              hsl(280, 87%, 65%)
-            );
-          background-position: center;
+        &:checked {
+          background-image: url(../images/icon-check.svg), #{$c-p-grad};
           background-repeat: no-repeat;
+          background-position: center;
           border: 0;
         }
 
-        input {
-          position: absolute;
-          opacity: 0;
-          cursor: pointer;
-          height: 0;
-          width: 0;
-        }
-
-        .checkbox-custom {
-          position: relative;
-          margin-left: 4rem;
-
-          &:after {
-            content: "";
-            border-radius: 50%;
-            border: 1px solid $c-lt-gray-20;
-            width: 24px;
-            height: 24px;
-            top: 50%;
-            transform: translateY(-50%);
-            left: -4rem;
-            position: absolute;
-          }
+        &:checked ~ span {
+          text-decoration: line-through;
+          text-decoration-thickness: 2px;
+          opacity: 0.6;
         }
       }
 
@@ -202,6 +206,11 @@ button {
         width: 24px;
         height: 24px;
         cursor: pointer;
+
+        @include md {
+          width: 32px;
+          height: 32px;
+        }
       }
     }
   }
@@ -266,11 +275,13 @@ button {
 
 .footer {
   font-size: $fs-14;
-  padding-top: 9.6rem;
   text-align: center;
+  position: absolute;
+  bottom: 4.8rem;
+  left: 50%;
+  transform: translateX(-50%);
 
   @include md {
     font-size: $fs-18;
-    padding-top: 4.8rem;
   }
 }

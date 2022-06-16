@@ -17,32 +17,35 @@ function addTodo(text) {
 function renderTodo(todo) {
   const list = document.querySelector(".todo__list");
   const item = document.querySelector(`[data-key='${todo.id}']`);
-  const node = document.createElement("li");
-  const isChecked = todo.checked ? "done" : "";
 
-  node.setAttribute("class", `${isChecked}`);
+  if (todo.deleted) {
+    item.remove();
+    return;
+  }
+  const node = document.createElement("li");
+
+  // const isChecked = todo.checked ? "done" : "";
+  // node.setAttribute("class", `${isChecked}`);
+
   node.setAttribute("data-key", todo.id);
 
   node.innerHTML = `
-    <label for="${todo.id}" class="label">
-        <input onclick="event.stopPropagation()" id="${todo.id}" type="checkbox" />
-        <span class="checkbox-custom">
-        ${todo.text}</span>
+    <label class="label" for="${todo.id}">
+      <input id="${todo.id}" class="checkbox" type="checkbox"  />
+      <span onclick="event.stopPropagation()" class="text"> ${todo.text}</span>
     </label>
     <button class="icon-close">
-        <img src="images/icon-cross.svg" alt="" />
+      <img src="images/icon-cross.svg" alt="" />
     </button>`;
 
-  // If the item already exists in the DOM
   if (item) {
-    // replace it
     list.replaceChild(node, item);
   } else {
-    // otherwise append it to the end of the list
     list.append(node);
   }
 }
 
+//form validation
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -56,19 +59,32 @@ form.addEventListener("submit", (e) => {
   console.log(input.value);
 });
 
+//set item id to li
 todoList.addEventListener("click", (e) => {
   if (e.target.parentNode.classList.contains("label")) {
     let itemKey = e.target.parentElement.parentElement.dataset.key;
     toggleDone(itemKey);
   }
+  if (e.target.parentNode.classList.contains("icon-close")) {
+    let itemKey = e.target.parentElement.parentElement.dataset.key;
+    deleteTodo(itemKey);
+  }
 });
 
+// delete todo;
+function deleteTodo(key) {
+  let index = todoItems.findIndex((item) => item.id === Number(key));
+  let todo = {
+    deleted: true,
+    ...todoItems[index],
+  };
+  todoItems = todoItems.filter((item) => item.id !== Number(key));
+  renderTodo(todo);
+}
+
+//toggle done todoItems
 function toggleDone(key) {
   const index = todoItems.findIndex((item) => item.id === Number(key));
-  // Locate the todo item in the todoItems array and set its checked
-  // property to the opposite. That means, `true` will become `false` and vice
-  // versa.
-
   todoItems[index].checked = !todoItems[index].checked;
-  renderTodo(todoItems[index]);
+  console.log(index);
 }
