@@ -23,9 +23,10 @@
     <div class="container">
       <header class="header">
         <div class="header__logo">todo</div>
-
         <div class="header__theme-switcher">
-          <img src="images/icon-moon.svg" alt="" />
+          <input id="switch-checkbox" type="checkbox" />
+          <label class="switch-icon" for="switch-checkbox"></label>
+          <!-- <img class="light" src="images/icon-moon.svg" alt="" /> -->
         </div>
       </header>
 
@@ -69,11 +70,13 @@
               <input type="radio" id="filter-all" name="filter" checked />
               <label for="filter-all">All</label>
               <input type="radio" id="filter-active" name="filter" />
-              <label for="filter-active">Active</label>
+              <label class="filter-active-label" for="filter-active"
+                >Active</label
+              >
               <input type="radio" id="filter-completed" name="filter" />
               <label for="filter-completed">Completed</label>
             </div>
-            <button class="clear">Clear Completed</button>
+            <p class="clear">Clear Completed</p>
           </div>
         </div>
       </div>

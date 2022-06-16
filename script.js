@@ -1,6 +1,8 @@
 let form = document.querySelector(".todo__form");
 let todoList = document.querySelector(".todo__list");
 let labels = document.getElementsByClassName("label");
+let btnThemeSwitcher = document.querySelector(".header__theme-switcher");
+let toggleSwitch = document.querySelector("#switch-checkbox");
 let todoItems = [];
 
 function addTodo(text) {
@@ -23,9 +25,6 @@ function renderTodo(todo) {
     return;
   }
   const node = document.createElement("li");
-
-  // const isChecked = todo.checked ? "done" : "";
-  // node.setAttribute("class", `${isChecked}`);
 
   node.setAttribute("data-key", todo.id);
 
@@ -88,3 +87,12 @@ function toggleDone(key) {
   todoItems[index].checked = !todoItems[index].checked;
   console.log(index);
 }
+
+function switchTheme(e) {
+  if (e.target.checked) {
+    document.documentElement.setAttribute("data-theme", "dark");
+  } else {
+    document.documentElement.setAttribute("data-theme", "light");
+  }
+}
+toggleSwitch.addEventListener("change", switchTheme, false);

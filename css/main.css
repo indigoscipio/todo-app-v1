@@ -1,3 +1,21 @@
+:root {
+  --c-p-blue: #3a7bfd;
+  --c-p-grad: linear-gradient(to bottom right, #57ddff, #c058f3);
+  --c-lt-white: white;
+  --c-lt-semiwhite: #fafafa;
+  --c-lt-gray-10: #e4e5f1;
+  --c-lt-gray-30: #9394a5;
+  --c-lt-gray-40: #484b6a; }
+
+[data-theme="dark"] {
+  --c-p-blue: #3a7bfd;
+  --c-p-grad: linear-gradient(to bottom right, #57ddff, #c058f3);
+  --c-lt-white: #161722;
+  --c-lt-semiwhite: #393a4c;
+  --c-lt-gray-10: #25273c;
+  --c-lt-gray-30: #484b6a;
+  --c-lt-gray-40: #777a92; }
+
 *,
 *::before,
 *::after {
@@ -29,8 +47,9 @@ html:focus-within {
 
 body {
   min-height: 100vh;
-  color: #484b6a;
+  color: var(--c-lt-gray-40);
   text-rendering: optimizeSpeed;
+  background-color: var(--c-lt-white);
   font-size: 1.8rem;
   line-height: 1;
   font-family: "Josefin Sans", sans-serif;
@@ -44,7 +63,6 @@ body {
     width: 100%;
     height: 24rem;
     display: inline-block;
-    background-color: black;
     background-image: url(../images/bg-mobile-light.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -73,7 +91,9 @@ input[type="text"] {
   border-radius: 0.4rem;
   padding: 1.6rem;
   font-size: 1.2rem;
-  width: 100%; }
+  width: 100%;
+  background-color: var(--c-lt-semiwhite);
+  color: var(--c-lt-gray-40); }
   @media screen and (min-width: 48em) {
     input[type="text"] {
       font-size: 1.8rem; } }
@@ -91,7 +111,7 @@ button {
 .header {
   padding: 4rem 0;
   display: flex;
-  color: #fafafa;
+  color: white;
   justify-content: space-between;
   align-items: center; }
   .header__logo {
@@ -105,10 +125,21 @@ button {
         letter-spacing: 0.6rem; } }
   .header__theme-switcher {
     cursor: pointer; }
-    .header__theme-switcher img {
-      transition: all 0.3s ease; }
-      .header__theme-switcher img:hover {
-        transform: scale(1.1); }
+    .header__theme-switcher #switch-checkbox {
+      display: none; }
+    .header__theme-switcher #switch-checkbox:checked ~ .switch-icon {
+      background-image: url(../images/icon-sun.svg); }
+    .header__theme-switcher .switch-icon {
+      width: 24px;
+      height: 24px;
+      display: inline-block;
+      background-image: url(../images/icon-moon.svg);
+      background-repeat: no-repeat;
+      background-size: cover; }
+      @media screen and (min-width: 48em) {
+        .header__theme-switcher .switch-icon {
+          width: 32px;
+          height: 32px; } }
 
 .todo {
   font-size: 1.2rem; }
@@ -116,7 +147,8 @@ button {
     .todo {
       font-size: 1.8rem; } }
   .todo__content {
-    background-color: white;
+    background-color: var(--c-lt-semiwhite);
+    color: var(--c-lt-gray-40);
     border-radius: 0.4rem;
     margin-top: 1.6rem;
     box-shadow: 0 16px 32px rgba(72, 75, 106, 0.3);
@@ -126,7 +158,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #e4e5f1; }
+    border-bottom: 1px solid var(--c-lt-gray-10); }
     .todo__list li .text {
       position: relative;
       top: 2px; }
@@ -138,7 +170,7 @@ button {
       border: 1px solid #9394a5; }
     .todo__list li .checkbox {
       -webkit-appearance: none;
-      border: 1px solid #e4e5f1;
+      border: 1px solid var(--c-lt-gray-30);
       width: 18px;
       margin-right: 12px;
       height: 18px;
@@ -173,7 +205,7 @@ button {
     align-items: center; }
   .todo .filter {
     display: flex;
-    background-color: white;
+    background-color: var(--c-lt-semiwhite);
     position: absolute;
     bottom: -6.4rem;
     width: 100%;
@@ -182,7 +214,7 @@ button {
     left: 0;
     box-shadow: 0 16px 32px rgba(72, 75, 106, 0.3);
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     font-weight: bold; }
     @media screen and (min-width: 48em) {
       .todo .filter {
@@ -202,12 +234,12 @@ button {
       height: 0;
       width: 0; }
     .todo .filter input[type="radio"]:checked + label {
-      color: #3a7bfd; }
+      color: var(--c-p-blue); }
     .todo .filter label {
       color: #9394a5;
       cursor: pointer; }
       .todo .filter label:hover {
-        color: #484b6a; }
+        color: var(--c-lt-gray-40); }
 
 .footer {
   font-size: 1.4rem;

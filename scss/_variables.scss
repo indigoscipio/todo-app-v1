@@ -7,7 +7,8 @@ $c-p-grad: linear-gradient(
 );
 
 //Light Theme
-$c-lt-white: hsl(0, 0%, 98%);
+$c-lt-white: white;
+$c-lt-semiwhite: hsl(0, 0%, 98%);
 $c-lt-gray-10: hsl(236, 33%, 92%);
 $c-lt-gray-20: hsl(233, 11%, 84%);
 $c-lt-gray-30: hsl(236, 9%, 61%);
@@ -22,11 +23,11 @@ $fs-32: 3.2rem;
 $fs-40: 4rem;
 
 // Dark Theme
-// $c-dt-black: hsl(235, 21%, 11%);
-// $c-dt-gray-10: hsl(235, 24%, 19%);
-// $c-dt-gray-20: hsl(234, 39%, 85%);
-// $c-dt-gray-30: hsl(234, 11%, 52%);
-// $c-dt-gray-40: hsl(237, 14%, 26%);
+$c-dt-black: hsl(235, 21%, 11%);
+$c-dt-semiblack: hsl(237, 14%, 26%);
+$c-dt-gray-10: hsl(235, 24%, 19%);
+$c-dt-gray-30: hsl(235, 19%, 35%);
+$c-dt-gray-40: hsl(234, 11%, 52%);
 
 // - Very Dark Blue: hsl(235, 21%, 11%)
 // - Very Dark Desaturated Blue: hsl(235, 24%, 19%)

@@ -1,3 +1,23 @@
+:root {
+  --c-p-blue: #{$c-p-blue};
+  --c-p-grad: #{$c-p-grad};
+  --c-lt-white: #{$c-lt-white};
+  --c-lt-semiwhite: #{$c-lt-semiwhite};
+  --c-lt-gray-10: #{$c-lt-gray-10};
+  --c-lt-gray-30: #{$c-lt-gray-30};
+  --c-lt-gray-40: #{$c-lt-gray-40};
+}
+
+[data-theme="dark"] {
+  --c-p-blue: #{$c-p-blue};
+  --c-p-grad: #{$c-p-grad};
+  --c-lt-white: #{$c-dt-black};
+  --c-lt-semiwhite: #{$c-dt-semiblack};
+  --c-lt-gray-10: #{$c-dt-gray-10};
+  --c-lt-gray-30: #{$c-dt-gray-30};
+  --c-lt-gray-40: #{$c-dt-gray-40};
+}
+
 *,
 *::before,
 *::after {
@@ -34,8 +54,9 @@ html:focus-within {
 
 body {
   min-height: 100vh;
-  color: $c-lt-gray-40;
+  color: var(--c-lt-gray-40);
   text-rendering: optimizeSpeed;
+  background-color: var(--c-lt-white);
   font-size: 1.8rem;
   line-height: 1;
   font-family: "Josefin Sans", sans-serif;
@@ -50,7 +71,6 @@ body {
     width: 100%;
     height: 24rem;
     display: inline-block;
-    background-color: black;
     background-image: url(../images/bg-mobile-light.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -85,6 +105,8 @@ input[type="text"] {
   padding: 1.6rem;
   font-size: 1.2rem;
   width: 100%;
+  background-color: var(--c-lt-semiwhite);
+  color: var(--c-lt-gray-40);
 
   @include md {
     font-size: $fs-18;
@@ -108,7 +130,7 @@ button {
 .header {
   padding: 4rem 0;
   display: flex;
-  color: $c-lt-white;
+  color: white;
   justify-content: space-between;
   align-items: center;
 
@@ -128,10 +150,25 @@ button {
   &__theme-switcher {
     cursor: pointer;
 
-    img {
-      transition: all 0.3s ease;
-      &:hover {
-        transform: scale(1.1);
+    #switch-checkbox {
+      display: none;
+    }
+
+    #switch-checkbox:checked ~ .switch-icon {
+      background-image: url(../images/icon-sun.svg);
+    }
+
+    .switch-icon {
+      width: 24px;
+      height: 24px;
+      display: inline-block;
+      background-image: url(../images/icon-moon.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      @include md {
+        width: 32px;
+        height: 32px;
       }
     }
   }
@@ -145,7 +182,8 @@ button {
   }
 
   &__content {
-    background-color: white;
+    background-color: var(--c-lt-semiwhite);
+    color: var(--c-lt-gray-40);
     border-radius: 0.4rem;
     margin-top: 1.6rem;
     box-shadow: 0 16px 32px rgba($c-lt-gray-40, 0.3);
@@ -158,7 +196,7 @@ button {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid $c-lt-gray-10;
+      border-bottom: 1px solid var(--c-lt-gray-10);
 
       .text {
         position: relative;
@@ -177,7 +215,7 @@ button {
 
       .checkbox {
         -webkit-appearance: none;
-        border: 1px solid $c-lt-gray-10;
+        border: 1px solid var(--c-lt-gray-30);
         width: 18px;
         margin-right: 12px;
         height: 18px;
@@ -226,7 +264,7 @@ button {
 
   .filter {
     display: flex;
-    background-color: white;
+    background-color: var(--c-lt-semiwhite);
     position: absolute;
     bottom: -6.4rem;
     width: 100%;
@@ -235,7 +273,7 @@ button {
     left: 0;
     box-shadow: 0 16px 32px rgba($c-lt-gray-40, 0.3);
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     font-weight: bold;
 
     @include md {
@@ -259,7 +297,7 @@ button {
     }
 
     input[type="radio"]:checked + label {
-      color: $c-p-blue;
+      color: var(--c-p-blue);
     }
 
     label {
@@ -267,7 +305,7 @@ button {
       cursor: pointer;
 
       &:hover {
-        color: $c-lt-gray-40;
+        color: var(--c-lt-gray-40);
       }
     }
   }
